@@ -10,6 +10,8 @@ import { SkillsComponent } from './skills/skills.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { FooterComponent } from './footer/footer.component';
+import { RocketComponent } from './rocket/rocket.component';
+import { FormsModule } from '@angular/forms'; // Import FormsModule
 
 @NgModule({
   declarations: [
@@ -21,11 +23,14 @@ import { FooterComponent } from './footer/footer.component';
     ContactsComponent,
     ProjectsComponent,
     FooterComponent,
+    RocketComponent,
+    
  
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration()

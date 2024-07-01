@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import {Component, ElementRef, HostListener, ViewChild, AfterViewInit , OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
-
+export class HomeComponent  {
+  private isAtBottom = false;
   constructor() { }
 
   scrollToDetails(): void {
@@ -15,5 +15,7 @@ export class HomeComponent {
       detailsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
+ 
+  
+  }
 
-}

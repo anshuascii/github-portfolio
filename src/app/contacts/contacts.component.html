@@ -1,26 +1,29 @@
+<!-- app.component.html or your specific home page component -->
 <div class="bc min-h-screen flex items-center justify-center">
-    <div class="bg-gray-800  rounded-lg shadow-md shadow-slate-500 overflow-hidden w-full max-w-md">
-      <div class="px-6 py-4">
-        <h3 class="text-2xl font-semibold bg-gray-800 text-white mb-2">Contact Me</h3>
-        <form action="/submit-contact-form" method="POST">
-          <div class="mb-4">
-            <label for="name" class="block text-white mb-1">Your Name:</label>
-            <input type="text" id="name" name="name" required placeholder="Enter your name"
-                   class="bg-gray-200 rounded-md px-3 py-2 w-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500">
-          </div>
-          <div class="mb-4">
-            <label for="email" class="block text-white  mb-1">Your Email:</label>
-            <input type="email" id="email" name="email" required placeholder="Enter your email"
-                   class="bg-gray-200 rounded-md px-3 py-2 w-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500">
-          </div>
-          <div class="mb-4">
-            <label for="message" class="block text-white  mb-1">Message:</label>
-            <textarea id="message" name="message" rows="4" required placeholder="Enter your message"
-                      class="bg-gray-200 rounded-md px-3 py-2 w-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-          </div>
-          <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white rounded-md px-4 py-2 focus:outline-none">Send Message</button>
-        </form>
+  <div class="bg-gray-800 rounded-lg shadow-md shadow-slate-500 overflow-hidden w-full max-w-md">
+    <div class="px-6 py-4">
+      <h3 class="text-2xl font-semibold bg-gray-800 text-white mb-2">Contact Me</h3>
+      <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+        <div class="mb-4">
+          <label for="name" class="block text-white mb-1">Your Name:</label>
+          <input type="text" id="name" name="name" required placeholder="Enter your name"
+                 class="bg-gray-200 rounded-md px-3 py-2 w-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500" ngModel>
+        </div>
+        <div class="mb-4">
+          <label for="email" class="block text-white mb-1">Your Email:</label>
+          <input type="email" id="email" name="email" required placeholder="Enter your email"
+                 class="bg-gray-200 rounded-md px-3 py-2 w-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500" ngModel>
+        </div>
+        <div class="mb-4">
+          <label for="message" class="block text-white mb-1">Message:</label>
+          <textarea id="message" name="message" rows="4" required placeholder="Enter your message"
+                    class="bg-gray-200 rounded-md px-3 py-2 w-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500" ngModel></textarea>
+        </div>
+        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white rounded-md px-4 py-2 focus:outline-none">Send Message</button>
+      </form>
+      <div *ngIf="submitted" class="mt-4 text-green-500 text-center">
+        Thank you for your message!
       </div>
     </div>
   </div>
-  
+</div>
